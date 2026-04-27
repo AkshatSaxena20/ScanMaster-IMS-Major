@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScanMaster - Immersive Scan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#15121b",
+                        "inverse-on-surface": "#322f39",
+                        "surface-container-lowest": "#0f0d15",
+                        "surface-bright": "#3b3742",
+                        "on-tertiary-container": "#3f2300",
+                        "surface": "#15121b",
+                        "surface-container-high": "#2c2832",
+                        "on-primary": "#3c0091",
+                        "outline-variant": "#494454",
+                        "on-background": "#e7e0ed",
+                        "inverse-surface": "#e7e0ed",
+                        "on-error": "#690005",
+                        "surface-dim": "#15121b",
+                        "inverse-primary": "#6d3bd7",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "on-tertiary": "#482900",
+                        "outline": "#958ea0",
+                        "primary": "#d0bcff",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#37333d",
+                        "surface-container": "#211e27",
+                        "secondary-container": "#03b5d3",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "secondary-fixed": "#acedff",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-variant": "#37333d",
+                        "surface-container-low": "#1d1a23",
+                        "tertiary": "#ffb869",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#cbc3d7",
+                        "error-container": "#93000a",
+                        "primary-container": "#a078ff",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-secondary-fixed": "#001f26",
+                        "on-secondary-container": "#00424e",
+                        "on-primary-container": "#340080",
+                        "tertiary-container": "#ca801e",
+                        "surface-tint": "#d0bcff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary": "#003640",
+                        "on-surface": "#e7e0ed",
+                        "tertiary-fixed-dim": "#ffb869"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "edge_margin": "20px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-numeric": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-numeric": ["42px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface h-screen w-screen overflow-hidden flex flex-col font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50 shadow-[0_0_15px_rgba(139,92,246,0.1)]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a serious young man with short hair and a subtle stubble in natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIgviNCKVFDbh2UdFAdpg95A4E3WcWrxImfOoKce6dghD6ztKUr0un2y575bpBvt8BIPOc6THwjMz2CBJjEbCwciLisHcqc1pQqTyni49PZ2ScsseF80oU7udHa_vqNnTgN3Naw6XzrmHtvF6jDX1Gytjl8DhZ8_8dsqvsu4-y9VwiS-ZsClVIQ9HD0SqskIJTDV9Ob4NYYODcPdp9ZbkQuXyTH-gZeaNHY4q-FMaN3Az50dMIzJswNBGkIji3yDK_PaX9FCJx3A"/>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-slate-100 font-['Space_Grotesk'] font-bold tracking-tight">ScanMaster</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-violet-500 hover:bg-white/5 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</header>
+<!-- Main Content Area - Camera View -->
+<main class="flex-grow relative mt-16 mb-20 bg-black overflow-hidden flex flex-col">
+<!-- Camera Feed Placeholder (Simulated with an image) -->
+<div class="absolute inset-0 z-0">
+<img alt="Camera Feed" class="w-full h-full object-cover opacity-60" data-alt="first person view looking down an aisle of high warehouse racks filled with cardboard boxes, soft industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC332bZh1egMl0aWWtjboAU_KHeHtUpLZhBAvnUMMAb363Ax-aSkbk3srP85eIuNGFF2xFc9yxeJ1T4RJXUWgAOypeUKg00xZsU4zZJrw3gUqWIgcDiqNAw1-JCb5YYnjQlUcvH_Ww5Sa0nUQN_nvMu9nPUS8un56VWArepifZ18RkxNHwJBfe-uFW3n4PQCRxa7MZ30Y-i_KvBAGqeNtijtn9kD5zTWwVTbrzDBTWzE0VJjEWzzVTKWKo8KMEPs309SPO_WG8_nw"/>
+</div>
+<!-- Scanning HUD Overlay -->
+<div class="relative z-10 flex-grow flex flex-col items-center justify-center p-edge_margin">
+<!-- Target Area Frame -->
+<div class="relative w-full max-w-[300px] aspect-square">
+<!-- Corners -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-secondary-container rounded-tl-lg shadow-[0_0_10px_rgba(3,181,211,0.5)]"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-secondary-container rounded-tr-lg shadow-[0_0_10px_rgba(3,181,211,0.5)]"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-secondary-container rounded-bl-lg shadow-[0_0_10px_rgba(3,181,211,0.5)]"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-secondary-container rounded-br-lg shadow-[0_0_10px_rgba(3,181,211,0.5)]"></div>
+<!-- Pulsing Scan Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-secondary shadow-[0_0_15px_rgba(76,215,246,0.8)] opacity-70"></div>
+<!-- HUD Readout Top -->
+<div class="absolute -top-10 left-0 w-full text-center">
+<span class="font-label-caps text-label-caps text-secondary px-3 py-1 bg-surface-container/80 backdrop-blur-sm rounded-full border border-secondary/30">ALIGN BARCODE</span>
+</div>
+</div>
+</div>
+<!-- Bottom Data Panel (Glassmorphic) -->
+<div class="relative z-20 bg-surface-container-lowest/80 backdrop-blur-xl border-t border-white/5 p-edge_margin flex flex-col gap-md pb-8">
+<!-- Scanned Item Data -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-xs">DETECTED ITEM</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Industrial Router AX3000</h2>
+<p class="font-body-md text-body-md text-outline">SKU: <span class="font-mono text-primary">RTR-882-AX</span></p>
+</div>
+<div class="bg-surface-container px-3 py-2 rounded-lg border border-outline-variant flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">QTY ON HAND</span>
+<span class="font-display-numeric text-display-numeric text-on-surface leading-none">42</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-gutter mt-sm">
+<!-- Stock Out Button (Red/Error theme) -->
+<button class="h-14 bg-error-container text-on-error-container font-label-caps text-label-caps rounded-xl flex items-center justify-center gap-2 hover:bg-error-container/90 active:scale-95 transition-all shadow-[0_0_15px_rgba(147,0,10,0.2)]">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+                    STOCK OUT
+                </button>
+<!-- Stock In Button (Green/Success theme - using primary/secondary variants for tech feel) -->
+<button class="h-14 bg-primary text-on-primary font-label-caps text-label-caps rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-95 transition-all shadow-[0_0_15px_rgba(208,188,255,0.2)]">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    STOCK IN
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 h-20 bg-slate-950/90 backdrop-blur-xl rounded-t-2xl border-t border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] md:hidden">
+<button class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Fleet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Stock</span>
+</button>
+<button class="flex flex-col items-center justify-center text-violet-400 scale-110 transition-transform hover:text-violet-300 active:scale-90 w-16">
+<span class="material-symbols-outlined filled mb-1" data-icon="barcode_scanner" data-weight="fill">barcode_scanner</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold text-violet-500 dark:text-violet-400">Scan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Data</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">User</span>
+</button>
+</nav>
+</body></html>

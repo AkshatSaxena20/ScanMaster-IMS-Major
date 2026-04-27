@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScanMaster Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=Inter:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#15121b",
+                        "inverse-on-surface": "#322f39",
+                        "surface-container-lowest": "#0f0d15",
+                        "surface-bright": "#3b3742",
+                        "on-tertiary-container": "#3f2300",
+                        "surface": "#15121b",
+                        "surface-container-high": "#2c2832",
+                        "on-primary": "#3c0091",
+                        "outline-variant": "#494454",
+                        "on-background": "#e7e0ed",
+                        "inverse-surface": "#e7e0ed",
+                        "on-error": "#690005",
+                        "surface-dim": "#15121b",
+                        "inverse-primary": "#6d3bd7",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "on-tertiary": "#482900",
+                        "outline": "#958ea0",
+                        "primary": "#d0bcff",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#37333d",
+                        "surface-container": "#211e27",
+                        "secondary-container": "#03b5d3",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "secondary-fixed": "#acedff",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-variant": "#37333d",
+                        "surface-container-low": "#1d1a23",
+                        "tertiary": "#ffb869",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#cbc3d7",
+                        "error-container": "#93000a",
+                        "primary-container": "#a078ff",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-secondary-fixed": "#001f26",
+                        "on-secondary-container": "#00424e",
+                        "on-primary-container": "#340080",
+                        "tertiary-container": "#ca801e",
+                        "surface-tint": "#d0bcff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary": "#003640",
+                        "on-surface": "#e7e0ed",
+                        "tertiary-fixed-dim": "#ffb869"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "edge_margin": "20px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-numeric": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-numeric": ["42px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .light-glow {
+            box-shadow: 0 0 20px rgba(160, 120, 255, 0.15);
+        }
+        
+        body {
+            /* Light mode overrides for this specific prompt */
+            background-color: #f8f9fa;
+            color: #1a1a2e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-[0_0_15px_rgba(139,92,246,0.05)]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-gray-900 font-['Space_Grotesk'] tracking-tight">ScanMaster</h1>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-gray-500 hover:text-primary-container transition-colors font-label-caps text-label-caps flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+                FLEET
+            </a>
+<a class="text-primary-container hover:text-primary transition-colors font-label-caps text-label-caps flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+                STOCK
+            </a>
+<a class="text-gray-500 hover:text-primary-container transition-colors font-label-caps text-label-caps flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">barcode_scanner</span>
+                SCAN
+            </a>
+<a class="text-gray-500 hover:text-primary-container transition-colors font-label-caps text-label-caps flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">analytics</span>
+                DATA
+            </a>
+<a class="text-gray-500 hover:text-primary-container transition-colors font-label-caps text-label-caps flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg">person</span>
+                USER
+            </a>
+</nav>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-edge_margin md:px-lg max-w-7xl mx-auto space-y-lg">
+<!-- Welcome & Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-gray-900">Dashboard</h2>
+<p class="font-body-md text-body-md text-gray-500 mt-1">Operational status for current shift.</p>
+</div>
+<div class="flex gap-md">
+<button class="flex-1 md:flex-none px-6 py-3 rounded-lg border-[1.5px] border-gray-300 text-gray-700 font-label-caps text-label-caps hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span>
+                    VIEW HISTORY
+                </button>
+<button class="flex-1 md:flex-none px-6 py-3 rounded-lg bg-[#6d3bd7] text-white font-label-caps text-label-caps hover:bg-[#5a2eb8] transition-colors shadow-[0_0_20px_rgba(109,59,215,0.3)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">barcode_scanner</span>
+                    SCAN ITEM
+                </button>
+</div>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Total Items -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
+<div class="flex justify-between items-start mb-lg relative z-10">
+<span class="font-label-caps text-label-caps text-gray-500">TOTAL INVENTORY</span>
+<span class="material-symbols-outlined text-primary-container">inventory</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-baseline gap-2">
+<span class="font-display-numeric text-display-numeric text-gray-900">12,485</span>
+<div class="flex items-center text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+                            2.4%
+                        </div>
+</div>
+</div>
+</div>
+<!-- Low Stock -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-2 h-full bg-amber-500"></div>
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl -mr-10 -mb-10 transition-transform group-hover:scale-150 duration-700"></div>
+<div class="flex justify-between items-start mb-lg relative z-10 pl-sm">
+<span class="font-label-caps text-label-caps text-gray-500">LOW STOCK ALERTS</span>
+<span class="material-symbols-outlined text-amber-500">warning</span>
+</div>
+<div class="relative z-10 pl-sm">
+<div class="flex items-baseline gap-2">
+<span class="font-display-numeric text-display-numeric text-gray-900">42</span>
+<span class="font-body-sm text-body-sm text-gray-500">items</span>
+</div>
+</div>
+</div>
+<!-- Scan Activity -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
+<div class="flex justify-between items-start mb-lg relative z-10">
+<span class="font-label-caps text-label-caps text-gray-500">TODAY'S SCANS</span>
+<span class="material-symbols-outlined text-secondary-container">bolt</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-baseline gap-2">
+<span class="font-display-numeric text-display-numeric text-gray-900">892</span>
+<div class="w-full h-1 bg-gray-100 rounded-full mt-3 overflow-hidden">
+<div class="h-full bg-[#6d3bd7] w-3/4 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity List -->
+<div class="glass-panel rounded-xl p-0 overflow-hidden mt-xl">
+<div class="p-md border-b border-gray-100 flex justify-between items-center bg-white/50">
+<h3 class="font-headline-md text-headline-md text-gray-900 text-[18px]">Recent Activity</h3>
+<button class="text-gray-500 hover:text-gray-900 transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="divide-y divide-gray-100">
+<!-- Item 1 -->
+<div class="p-md flex items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-gray-900 font-semibold">SKU-992-AX</p>
+<p class="font-body-sm text-body-sm text-gray-500 text-sm">Industrial Bearing • Bin A4</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 rounded bg-gray-100 text-gray-700 font-label-caps text-label-caps text-[10px]">VERIFIED</span>
+<p class="font-body-sm text-body-sm text-gray-400 text-xs mt-1">2 mins ago</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-md flex items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+<span class="material-symbols-outlined">error</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-gray-900 font-semibold">SKU-415-BQ</p>
+<p class="font-body-sm text-body-sm text-gray-500 text-sm">Logic Board V2 • Bin C12</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 rounded bg-amber-100 text-amber-800 font-label-caps text-label-caps text-[10px]">MISMATCH</span>
+<p class="font-body-sm text-body-sm text-gray-400 text-xs mt-1">15 mins ago</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-md flex items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-gray-900 font-semibold">SKU-108-ZT</p>
+<p class="font-body-sm text-body-sm text-gray-500 text-sm">Cooling Fan Unit • Bin B2</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 rounded bg-gray-100 text-gray-700 font-label-caps text-label-caps text-[10px]">VERIFIED</span>
+<p class="font-body-sm text-body-sm text-gray-400 text-xs mt-1">42 mins ago</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 h-20 bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-gray-400 opacity-70 hover:text-[#6d3bd7] active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Fleet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6d3bd7] scale-110 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Stock</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 opacity-70 hover:text-[#6d3bd7] active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">barcode_scanner</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 opacity-70 hover:text-[#6d3bd7] active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Data</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 opacity-70 hover:text-[#6d3bd7] active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">User</span>
+</a>
+</nav>
+</body></html>

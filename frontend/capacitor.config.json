@@ -1,0 +1,16 @@
+{
+  "appId": "com.scanmaster.ims",
+  "appName": "ScanMaster",
+  "webDir": "build",
+  "server": {
+    "cleartext": true,
+    "androidScheme": "http"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": true,
+      "backgroundColor": "#15121b",
+      "showSpinner": false
+    }
+  }
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScanMaster IMS Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#15121b",
+                        "inverse-on-surface": "#322f39",
+                        "surface-container-lowest": "#0f0d15",
+                        "surface-bright": "#3b3742",
+                        "on-tertiary-container": "#3f2300",
+                        "surface": "#15121b",
+                        "surface-container-high": "#2c2832",
+                        "on-primary": "#3c0091",
+                        "outline-variant": "#494454",
+                        "on-background": "#e7e0ed",
+                        "inverse-surface": "#e7e0ed",
+                        "on-error": "#690005",
+                        "surface-dim": "#15121b",
+                        "inverse-primary": "#6d3bd7",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "on-tertiary": "#482900",
+                        "outline": "#958ea0",
+                        "primary": "#d0bcff",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#37333d",
+                        "surface-container": "#211e27",
+                        "secondary-container": "#03b5d3",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "secondary-fixed": "#acedff",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-variant": "#37333d",
+                        "surface-container-low": "#1d1a23",
+                        "tertiary": "#ffb869",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#cbc3d7",
+                        "error-container": "#93000a",
+                        "primary-container": "#a078ff",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-secondary-fixed": "#001f26",
+                        "on-secondary-container": "#00424e",
+                        "on-primary-container": "#340080",
+                        "tertiary-container": "#ca801e",
+                        "surface-tint": "#d0bcff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary": "#003640",
+                        "on-surface": "#e7e0ed",
+                        "tertiary-fixed-dim": "#ffb869"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "edge_margin": "20px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-numeric": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-numeric": ["42px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-card {
+            box-shadow: 0 0 15px rgba(208, 188, 255, 0.05);
+        }
+        .glow-button {
+            box-shadow: 0 0 20px rgba(160, 120, 255, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 md:pb-0 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-slate-950/80 backdrop-blur-md dark:bg-slate-950/80 border-b border-white/10 shadow-[0_0_15px_rgba(139,92,246,0.1)]">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-sm">person</span>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-slate-100 font-['Space_Grotesk'] font-bold tracking-tight">ScanMaster</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-violet-500 dark:text-violet-400">dark_mode</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="p-edge_margin max-w-7xl mx-auto space-y-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-xs">Fleet Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time telemetry and inventory metrics.</p>
+</div>
+<div class="flex gap-md w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-sm px-md py-sm rounded-lg border-2 border-outline-variant text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="font-label-caps text-label-caps uppercase">View History</span>
+</button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-sm px-md py-sm rounded-lg bg-primary-container text-on-primary-container glow-button hover:bg-primary-container/90 transition-colors">
+<span class="material-symbols-outlined text-[20px]">barcode_scanner</span>
+<span class="font-label-caps text-label-caps uppercase">Scan Item</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Total Items Card -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant/30 glow-card relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">inventory_2</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Stock</span>
+</div>
+<span class="px-sm py-xs rounded-full bg-secondary-container/20 text-secondary font-label-caps text-[10px] uppercase tracking-wider flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> 12%
+                    </span>
+</div>
+<div>
+<div class="font-display-numeric text-display-numeric text-on-background">14,208</div>
+<p class="font-body-sm text-sm text-on-surface-variant mt-xs">Across 3 facilities</p>
+</div>
+</div>
+<!-- Low Stock Card -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant/30 glow-card relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">warning</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Low Stock</span>
+</div>
+<span class="px-sm py-xs rounded-full bg-tertiary-container/20 text-tertiary font-label-caps text-[10px] uppercase tracking-wider flex items-center gap-xs">
+                        Action Req
+                    </span>
+</div>
+<div>
+<div class="font-display-numeric text-display-numeric text-on-background">42</div>
+<p class="font-body-sm text-sm text-on-surface-variant mt-xs">Items below threshold</p>
+</div>
+</div>
+<!-- Active Scans Card -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant/30 glow-card relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">radar</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Scans</span>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<div>
+<div class="font-display-numeric text-display-numeric text-on-background">128</div>
+<p class="font-body-sm text-sm text-on-surface-variant mt-xs">Scans this hour</p>
+</div>
+</div>
+<!-- Wide Activity Chart Area (Placeholder styling) -->
+<div class="md:col-span-2 bg-surface-container rounded-xl p-md border border-outline-variant/30 glow-card relative overflow-hidden min-h-[300px] flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-background">Throughput Volume</h3>
+<div class="flex gap-sm">
+<button class="px-sm py-xs text-xs font-label-caps uppercase bg-surface-bright rounded text-on-surface">1H</button>
+<button class="px-sm py-xs text-xs font-label-caps uppercase text-on-surface-variant hover:bg-surface-bright rounded">24H</button>
+</div>
+</div>
+<div class="flex-1 w-full bg-gradient-to-t from-primary/5 to-transparent border-b border-primary/20 relative rounded-lg">
+<!-- Abstract representation of a chart -->
+<div class="absolute bottom-0 w-full h-[60%] flex items-end justify-between px-md gap-sm opacity-50">
+<div class="w-full bg-primary/40 rounded-t h-[40%]"></div>
+<div class="w-full bg-primary/60 rounded-t h-[70%]"></div>
+<div class="w-full bg-primary/30 rounded-t h-[30%]"></div>
+<div class="w-full bg-primary/80 rounded-t h-[90%]"></div>
+<div class="w-full bg-primary/50 rounded-t h-[60%]"></div>
+<div class="w-full bg-primary/70 rounded-t h-[80%]"></div>
+<div class="w-full bg-primary/40 rounded-t h-[50%]"></div>
+</div>
+</div>
+</div>
+<!-- Recent Activity List -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant/30 glow-card relative overflow-hidden flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-background mb-md">Recent Scans</h3>
+<div class="space-y-sm flex-1 overflow-y-auto">
+<div class="flex items-center justify-between p-sm rounded bg-surface-bright/50">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-8 bg-secondary rounded-full"></div>
+<div>
+<div class="font-body-md text-body-md text-on-surface">SKU-9942</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant">WH-A • Zone 4</div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase text-[10px]">Verified</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded bg-surface-bright/50">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-8 bg-tertiary rounded-full"></div>
+<div>
+<div class="font-body-md text-body-md text-on-surface">SKU-1128</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant">WH-B • Zone 1</div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary uppercase text-[10px]">Anomaly</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded bg-surface-bright/50">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-8 bg-secondary rounded-full"></div>
+<div>
+<div class="font-body-md text-body-md text-on-surface">SKU-4451</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant">WH-A • Zone 2</div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase text-[10px]">Verified</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 h-20 bg-slate-950/90 backdrop-blur-xl dark:bg-slate-950/90 rounded-t-2xl border-t border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-violet-400 scale-110 transition-transform active:scale-90 transition-all hover:text-violet-300 w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Fleet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">inventory_2</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Stock</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">barcode_scanner</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Data</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 hover:text-violet-300 active:scale-90 transition-all w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">User</span>
+</a>
+</nav>
+</body></html>
